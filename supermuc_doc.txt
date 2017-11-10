@@ -1,0 +1,12 @@
+Use git on supermuc
+
+within the lxhalle type
+ssh -R XXXXXX:github.com:9418 YYYYYY@supermuc.lrz.de
+
+XXXXX is any number between 10000 and 65535
+YYYYY is your account
+
+git clone git://localhost:XXXXX/superComputersGroup10/SUPCOM_assigment1.git
+
+ful doc at:
+https://www.lrz.de/services/software/programmierung/git/
