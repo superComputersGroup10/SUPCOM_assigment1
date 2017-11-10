@@ -26,5 +26,10 @@
 module unload mpi.ibm
 module load mpi.intel
 #export OMP_NUM_THREADS=2
+
+for i in {1..5};
+do
+echo $i
 ./lulesh2.0
-gprof lulesh2.0 gmon.out > SAG_assignment1.phase1.gprof.out
+gprof lulesh2.0 gmon.out > SAG_assignment1_$i.phase1.gprof.out
+done
