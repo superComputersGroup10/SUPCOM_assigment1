@@ -1,4 +1,4 @@
-Use git on supermuc
+-Use git on supermuc
 
 within the lxhalle type
 ssh -R XXXXXX:github.com:9418 YYYYYY@supermuc.lrz.de
@@ -10,3 +10,11 @@ git clone git://localhost:XXXXX/superComputersGroup10/SUPCOM_assigment1.git
 
 ful doc at:
 https://www.lrz.de/services/software/programmierung/git/
+
+-Basic setup
+
+module unload mpi.ibm
+module load mpi.intel
+
+-Compilers
+ mpicxx - GNU
