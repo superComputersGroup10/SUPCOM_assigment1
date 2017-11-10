@@ -18,3 +18,11 @@ module load mpi.intel
 
 -Compilers
  mpicxx - GNU
+
+-To copy files from SuperMUC to local machine:
+In the lxhalle, do: 
+scp <supermuc-username>@supermuc.lrz.de:/path/to/file /destination/path
+Then, in your local machine do:
+scp <lxhalle-username>@lxhalle.informatik.tu-muenchen.de:/path/to/file /destination/path
+
+To check the /path/to/file it is useful to use the pwd command (prints current directory).
