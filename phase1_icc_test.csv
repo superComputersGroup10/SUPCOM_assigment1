@@ -1,0 +1,19 @@
+1,2,3,4,5,6,7,8,9,10,11,12,13,14,15
+"-march=native
+","-xHost
+","-unroll
+","-ipo
+","-march=native -xHost
+","-march=native -unroll
+","-march=native -ipo
+","-xHost -unroll
+","-xHost -ipo
+","-unroll -ipo
+","-march=native -xHost -unroll
+","-march=native -xHost -ipo
+","-march=native -unroll -ipo
+","-xHost -unroll -ipo
+","-march=native -xHost -unroll -ipo
+"
+Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file
+Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file
