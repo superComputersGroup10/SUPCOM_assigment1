@@ -18,6 +18,7 @@ OUTPUT_FILES_SUFIX="output_"
 OUTPUT_CVS_FILENAME="test.cvs"
 
 echo "Starting..."
+echo "Results will be saved in $OUTPUT_DIRECTORY directory"
 
 if [ "$COMPILER" = "g++" ]; then
     NUM_COMBINATIONS=127
@@ -41,7 +42,7 @@ for (( c=0; c<$NUM_COMBINATIONS; c++  ))
 do
     echo ""
     echo "*****************************************************"
-    echo "Running $c case...."
+    echo "Running case $c...."
     python $PYTHON_GEN_MAKE -i $FLAGS_FILE -r $c -c $COMPILER -o $MAKE_FILE
     make --directory=$CODE_DIRECTORY --file=$MAKE_FILE
     llrun -n $NUM_TASKS $BINARY > $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$((c+1))
