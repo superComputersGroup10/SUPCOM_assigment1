@@ -75,7 +75,7 @@ def main():
     parser.add_argument("-i", "--input_file", help="Text files with flag list as rows")
     parser.add_argument("-r", "--row", help="Row of the flag file to write in the Makefile")
     parser.add_argument("-c", "--compiler", help="Compiler name to use in the Makefile")
-    parser.add_argument("-o", "--output ", help="Output name for the Makefile")
+    parser.add_argument("-o", "--output", help="Output name for the Makefile")
     args = parser.parse_args()
 
     filepath = args.input_file
