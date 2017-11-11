@@ -27,8 +27,9 @@ echo "Starting..."
 python $PYTHON_GEN_SCRIPT -c $COMPILER -o $FLAGS_FILE
 mkdir -p -v $OUTPUT_DIRECTORY
 
-make --directory=$CODE_DIRECTORY --file=$MAKE_FILE clean
-for (( c=0; c<$NUM_COMBINATIONS; c++  ))
+make --directory=$CODE_DIRECTORY clean
+#for (( c=0; c<$NUM_COMBINATIONS; c++  ))
+for (( c=0; c<1; c++  ))
 do
     python $PYTHON_GEN_MAKE -i $FLAGS_FILE -r $c -c $COMPILER -o $MAKE_FILE
     make --directory=$CODE_DIRECTORY --file=$MAKE_FILE
