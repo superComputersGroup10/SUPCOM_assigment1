@@ -26,3 +26,9 @@ Then, in your local machine do:
 scp <lxhalle-username>@lxhalle.informatik.tu-muenchen.de:/path/to/file /destination/path
 
 To check the /path/to/file it is useful to use the pwd command (prints current directory).
+
+- To run interactive jobs, execute in the login node:
+module load lrztools
+llrun -n <num_tasks> ./myexe 
+More info: https://www.lrz.de/services/compute/supermuc/loadleveler/special/index.html#llrun
+           https://www.lrz.de/services/compute/supermuc/loadleveler/
