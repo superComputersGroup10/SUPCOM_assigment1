@@ -16,3 +16,5 @@ chmod +x $PYTHON_GEN_SCRIPT $PYTHON_GEN_MAKE
 #make -f Makefile$i 
 #mv lulesh2.0_$i Binaries/
 #make -f Makefile$i clean
+
+chmod -x $PYTHON_GEN_SCRIPT $PYTHON_GEN_MAKE
