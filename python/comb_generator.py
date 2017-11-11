@@ -17,7 +17,8 @@ def main():
             default="flags_combination")
     parser.add_argument("-c", "--compiler",
             help="Compiler to use",
-            default="gcc")
+            default="gcc",
+            choices=["gcc", "icc"])
     args = parser.parse_args()
 
     if args.compiler == "gcc":
