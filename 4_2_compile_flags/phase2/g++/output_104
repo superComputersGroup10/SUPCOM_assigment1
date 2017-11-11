@@ -1,0 +1,88 @@
+-------------------------------------
+LoadLeveler File for POE
+-------------------------------------
+#@ shell = /usr/bin/ksh
+#@ job_type = parallel
+#@ initialdir=/home/hpc/h039y/h039y29/git/SUPCOM_assigment1/python
+#@ job_name = LLRUN
+#@ class = test
+#@ node_usage = not_shared
+#@ wall_clock_limit = 02:00:00
+#@ network.MPI = sn_all,,us,,
+#@ notification = never
+#@ output = LLRUN.out.$(jobid)
+#@ error =  LLRUN.err.$(jobid)
+#@ node = 1
+#@ total_tasks = 1
+#@ queue
+-------------------------------------
+Settings for POE
+-------------------------------------
+MP_BULK_MIN_MSG_SIZE=65536
+MP_CLOCK_SOURCE=OS
+MP_COMPILER=intel
+MP_COREDIR=none
+MP_COREFILE_FORMAT=STDERR
+MP_CSS_INTERRUPT=no
+MP_EAGER_LIMIT=65536
+MP_EUIDEVELOP=min
+MP_EUIDEVICE=sn_single
+MP_EUILIB=us
+MP_FIFO_MTU=4096
+MP_LABELIO=no
+MP_LLFILE=/gss/scratch/h039y/h039y29/llrun.lrz/llrun.lrz.jcf.54108
+MP_MPILIB=mpich2
+MP_NODES=1
+MP_PE_AFFINITY=yes
+MP_POE_LAUNCH=all
+MP_PROCS=1
+MP_RC_MAX_QP=8192
+MP_RDMA_MTU=4K
+MP_RESD=yes
+MP_RETRY=30
+MP_RFIFO_SIZE=16777216
+MP_RMPOOL=20
+MP_SAVEHOSTFILE=/gss/scratch/h039y/h039y29/llrun.lrz/llrun.lrzhostfile.54108
+MP_SHARED_MEMORY=yes
+MP_SINGLE_THREAD=no
+MP_S_SKIP_PMDEXIT_SLEEP=yes
+MP_STDOUTMODE=unordered
+MP_SYNC_QP=YES
+MP_TASK_AFFINITY=CORE
+MP_TIMEOUT=150
+MP_USE_BULK_XFER=yes
+MP_WAIT_MODE=poll
+OMP_NUM_THREADS=1
+-------------------------------------
+Launch Command:
+-------------------------------------
+mpiexec -n 1 /home/hpc/h039y/h039y29/git/SUPCOM_assigment1/lulesh2.0
+-------------------------------------
+
+Running problem size 30^3 per domain until completion
+Num processors: 1
+Total number of elements: 27000
+
+To run other sizes, use -s <integer>.
+To run a fixed number of iterations, use -i <integer>.
+To run a more or less balanced region set, use -b <integer>.
+To change the relative costs of regions, use -c <integer>.
+To print out progress, use -p
+To write an output file for VisIt, use -v
+See help (-h) for more options
+
+Run completed:  
+   Problem size        =  30 
+   MPI tasks           =  1 
+   Iteration count     =  932 
+   Final Origin Energy = 2.025075e+05 
+   Testing Plane 0 of Energy Array on rank 0:
+        MaxAbsDiff   = 4.911271e-11
+        TotalAbsDiff = 7.952690e-10
+        MaxRelDiff   = 1.311667e-12
+
+
+Elapsed time         =      39.07 (s)
+Grind time (us/z/c)  =  1.5526749 (per dom)  ( 1.5526749 overall)
+FOM                  =  644.04985 (z/s)
+
