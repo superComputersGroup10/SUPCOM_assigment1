@@ -8,7 +8,7 @@ def writeMakeFile(flags, compiler, output):
 SHELL = /bin/sh
 .SUFFIXES: .cc .o
 
-LULESH_EXEC = lulesh2.0_
+LULESH_EXEC = lulesh2.0
 
 MPI_INC = /opt/local/include/openmpi
 MPI_LIB = /opt/local/lib
