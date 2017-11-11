@@ -1,10 +1,13 @@
-def writeMakeFile(flags, index):
+#!/urs/bin/python3
+import argparse
+
+def writeMakeFile(flags):
     makefilestring="""#default build suggestion of MPI + OPENMP with gcc on Livermore machines you might have to change the compiler name
     
 SHELL = /bin/sh
 .SUFFIXES: .cc .o
 
-LULESH_EXEC = lulesh2.0_%i
+LULESH_EXEC = lulesh2.0_
 
 MPI_INC = /opt/local/include/openmpi
 MPI_LIB = /opt/local/lib
@@ -49,7 +52,7 @@ LDFLAGS = -g -O3 -fopenmp
 
 all: $(LULESH_EXEC)
 
-lulesh2.0_%i: $(OBJECTS2.0)
+lulesh2.0: $(OBJECTS2.0)
 	@echo "Linking"
 	$(CXX) $(OBJECTS2.0) $(LDFLAGS) -lm -o $@
 
@@ -59,16 +62,27 @@ clean:
 
 tar: clean
 	cd .. ; tar cvf lulesh-2.0.tar LULESH-2.0 ; mv lulesh-2.0.tar LULESH-2.0
-""" % (index, flags, index)
-    f = open('../Makefiles/Makefile%i'%index, 'w')
+""" % (flags)
+    f = open('../Makefile', 'w')
     f.write(makefilestring)
     f.closed
+    print('Generated Makefile with flags: %s  ' % (flags.replace('\n','')))
     
-filepath = 'flags_combination'  
-with open(filepath) as fp:  
-   flags = fp.readline()
-   cnt = 1
-   while flags:
-       writeMakeFile(flags, cnt)
-       flags = fp.readline()
-       cnt += 1
+
+def main():
+    parser = argparse.ArgumentParser(description="Generates a Makefile with the flags indicated flags")
+    parser.add_argument("-i", "--input_file", help="Text files with flag list as rows")
+    parser.add_argument("-r", "--row", help="Row of the flag file to write in the Makefile")
+
+    args = parser.parse_args()
+
+    filepath = args .input_file
+    row = int(args .row)
+
+    fp=open(filepath) 
+    flags=fp.readlines()
+    
+    writeMakeFile(flags[row])
+
+if __name__ == "__main__":
+        main()
