@@ -15,7 +15,7 @@ MAKE_FILE="$CODE_DIRECTORY/MakefileBenchmark"
 BINARY="$CODE_DIRECTORY/lulesh2.0"
 OUTPUT_DIRECTORY="$CODE_DIRECTORY/4_2_compile_flags/phase$SUPERMUC_PHASE/$COMPILER"
 OUTPUT_FILES_SUFIX="output_"
-OUTPUT_CVS_FILENAME="test.cvs"
+OUTPUT_CVS_FILENAME="test.csv"
 
 echo "Starting..."
 echo "Results will be saved in $OUTPUT_DIRECTORY directory"
