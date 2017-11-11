@@ -17,11 +17,11 @@ def main():
             default="flags_combination")
     parser.add_argument("-c", "--compiler",
             help="Compiler to use",
-            default="gcc",
-            choices=["gcc", "icc"])
+            default="g++",
+            choices=["g++", "icc"])
     args = parser.parse_args()
 
-    if args.compiler == "gcc":
+    if args.compiler == "g++":
         flags = ["-march=native", "-fomit-frame-pointer", "-floop-block", "-floop-interchange",
                 "-floop-strip-mine", "-funroll-loops", "-flto"]
     else:
