@@ -9,9 +9,9 @@ import os
 def readElapsedAndGrindTime(file_name):
     f=open(file_name)
     lines=f.readlines()
-    if(len(lines)==27):
-        Elapsed_time=float(re.findall("\d+\.\d+", lines[23])[0])
-        Grind_time=float(re.findall("\d+\.\d+", lines[24])[0])
+    if(("Elapsed time" in lines[85]) and ("Grind time" in lines[86])):
+        Elapsed_time=float(re.findall("\d+\.\d+", lines[85])[0])
+        Grind_time=float(re.findall("\d+\.\d+", lines[86])[0])
     else:
         Elapsed_time = 'Empty file'
         Grind_time = 'Empty file'
