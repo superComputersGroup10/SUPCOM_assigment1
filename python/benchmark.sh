@@ -2,12 +2,12 @@
 
 COMPILER="g++"
 NUM_TASKS=1
+SUPERMUC_PHASE=1
 
 PYTHON_GEN_SCRIPT="comb_generator.py"
 PYTHON_GEN_MAKE="Makefiles_generator.py"
 PYTHON_PARSER="ParselElapsedAndGrindTime.py"
 FLAGS_FILE="flags_combination"
-SUPERMUC_PHASE=1
 
 SCRIPT_DIRECTORY="$(pwd) "
 CODE_DIRECTORY="$(dirname $(pwd))"
