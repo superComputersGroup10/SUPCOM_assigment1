@@ -1,6 +1,10 @@
 #!/bin/bash
 
-COMPILER="g++"
+# Set this varible to supermuc to run it in the supermuc, otherwise it will run without calling modules or
+# llrun
+MODE="supermuc"
+
+COMPILER="g++" # Two possible values, g++ or icc
 NUM_TASKS=1
 SUPERMUC_PHASE=1
 
@@ -22,30 +26,41 @@ echo "Results will be saved in $OUTPUT_DIRECTORY directory"
 
 if [ "$COMPILER" = "g++" ]; then
     NUM_COMBINATIONS=127
-    module unload gcc
-    module load gcc/6
+    if [ "$MODE" = "supermuc" ]; then
+        module unload gcc
+        module load gcc/6
+    fi
 elif [ "$COMPILER" = "icc" ]; then
     NUM_COMBINATIONS=15
-    module
 else
     (>&2 echo "ERROR: Unknown compiler")
     exit
 fi
 
-module load lrztools
+if ["$MODE" = "supermuc"]; then
+    module load lrztools
+fi
 
 python $PYTHON_GEN_SCRIPT -c $COMPILER -o $FLAGS_FILE
 mkdir -p -v $OUTPUT_DIRECTORY
 
 make --directory=$CODE_DIRECTORY clean
-for (( c=0; c<$NUM_COMBINATIONS; c++  ))
+
+# Since the first line of the comb_flags is a blank line, we have to loop over $NUM_COMBINATIONS + 1
+for (( c=0; c<=$NUM_COMBINATIONS; c++  ))
 do
     echo ""
     echo "*****************************************************"
     echo "Running case $c...."
     python $PYTHON_GEN_MAKE -i $FLAGS_FILE -r $c -c $COMPILER -o $MAKE_FILE
     make --directory=$CODE_DIRECTORY --file=$MAKE_FILE
-    llrun -n $NUM_TASKS $BINARY > $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$((c+1))
+
+    if [ "$MODE" = "supermuc" ]; then
+        llrun -n $NUM_TASKS $BINARY > $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$((c+1))
+    else
+        $BINARY > $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$((c+1))
+    fi
+
     make --directory=$CODE_DIRECTORY --file=$MAKE_FILE clean
 done
 
