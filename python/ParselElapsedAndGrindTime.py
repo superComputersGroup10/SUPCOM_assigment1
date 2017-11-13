@@ -19,7 +19,7 @@ def readElapsedAndGrindTime(file_name):
         Grind_time = 'Empty or corruepted file'
     else:
         Elapsed_time=float(re.findall("\d+\.\d+", ElapsedTimeString.group(0))[0])
-        Grind_time=float(re.findall("\d+\.\d+", Grind_time.group(0))[0])
+        Grind_time=float(re.findall("\d+\.\d+", GrindTimeString.group(0))[0])
     return Elapsed_time, Grind_time
 
 def main():
