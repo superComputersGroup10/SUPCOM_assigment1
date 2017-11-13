@@ -1,0 +1,133 @@
+1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127
+"-march=native
+","-fomit-frame-pointer
+","-floop-block
+","-floop-interchange
+","-floop-strip-mine
+","-funroll-loops
+","-flto
+","-march=native -fomit-frame-pointer
+","-march=native -floop-block
+","-march=native -floop-interchange
+","-march=native -floop-strip-mine
+","-march=native -funroll-loops
+","-march=native -flto
+","-fomit-frame-pointer -floop-block
+","-fomit-frame-pointer -floop-interchange
+","-fomit-frame-pointer -floop-strip-mine
+","-fomit-frame-pointer -funroll-loops
+","-fomit-frame-pointer -flto
+","-floop-block -floop-interchange
+","-floop-block -floop-strip-mine
+","-floop-block -funroll-loops
+","-floop-block -flto
+","-floop-interchange -floop-strip-mine
+","-floop-interchange -funroll-loops
+","-floop-interchange -flto
+","-floop-strip-mine -funroll-loops
+","-floop-strip-mine -flto
+","-funroll-loops -flto
+","-march=native -fomit-frame-pointer -floop-block
+","-march=native -fomit-frame-pointer -floop-interchange
+","-march=native -fomit-frame-pointer -floop-strip-mine
+","-march=native -fomit-frame-pointer -funroll-loops
+","-march=native -fomit-frame-pointer -flto
+","-march=native -floop-block -floop-interchange
+","-march=native -floop-block -floop-strip-mine
+","-march=native -floop-block -funroll-loops
+","-march=native -floop-block -flto
+","-march=native -floop-interchange -floop-strip-mine
+","-march=native -floop-interchange -funroll-loops
+","-march=native -floop-interchange -flto
+","-march=native -floop-strip-mine -funroll-loops
+","-march=native -floop-strip-mine -flto
+","-march=native -funroll-loops -flto
+","-fomit-frame-pointer -floop-block -floop-interchange
+","-fomit-frame-pointer -floop-block -floop-strip-mine
+","-fomit-frame-pointer -floop-block -funroll-loops
+","-fomit-frame-pointer -floop-block -flto
+","-fomit-frame-pointer -floop-interchange -floop-strip-mine
+","-fomit-frame-pointer -floop-interchange -funroll-loops
+","-fomit-frame-pointer -floop-interchange -flto
+","-fomit-frame-pointer -floop-strip-mine -funroll-loops
+","-fomit-frame-pointer -floop-strip-mine -flto
+","-fomit-frame-pointer -funroll-loops -flto
+","-floop-block -floop-interchange -floop-strip-mine
+","-floop-block -floop-interchange -funroll-loops
+","-floop-block -floop-interchange -flto
+","-floop-block -floop-strip-mine -funroll-loops
+","-floop-block -floop-strip-mine -flto
+","-floop-block -funroll-loops -flto
+","-floop-interchange -floop-strip-mine -funroll-loops
+","-floop-interchange -floop-strip-mine -flto
+","-floop-interchange -funroll-loops -flto
+","-floop-strip-mine -funroll-loops -flto
+","-march=native -fomit-frame-pointer -floop-block -floop-interchange
+","-march=native -fomit-frame-pointer -floop-block -floop-strip-mine
+","-march=native -fomit-frame-pointer -floop-block -funroll-loops
+","-march=native -fomit-frame-pointer -floop-block -flto
+","-march=native -fomit-frame-pointer -floop-interchange -floop-strip-mine
+","-march=native -fomit-frame-pointer -floop-interchange -funroll-loops
+","-march=native -fomit-frame-pointer -floop-interchange -flto
+","-march=native -fomit-frame-pointer -floop-strip-mine -funroll-loops
+","-march=native -fomit-frame-pointer -floop-strip-mine -flto
+","-march=native -fomit-frame-pointer -funroll-loops -flto
+","-march=native -floop-block -floop-interchange -floop-strip-mine
+","-march=native -floop-block -floop-interchange -funroll-loops
+","-march=native -floop-block -floop-interchange -flto
+","-march=native -floop-block -floop-strip-mine -funroll-loops
+","-march=native -floop-block -floop-strip-mine -flto
+","-march=native -floop-block -funroll-loops -flto
+","-march=native -floop-interchange -floop-strip-mine -funroll-loops
+","-march=native -floop-interchange -floop-strip-mine -flto
+","-march=native -floop-interchange -funroll-loops -flto
+","-march=native -floop-strip-mine -funroll-loops -flto
+","-fomit-frame-pointer -floop-block -floop-interchange -floop-strip-mine
+","-fomit-frame-pointer -floop-block -floop-interchange -funroll-loops
+","-fomit-frame-pointer -floop-block -floop-interchange -flto
+","-fomit-frame-pointer -floop-block -floop-strip-mine -funroll-loops
+","-fomit-frame-pointer -floop-block -floop-strip-mine -flto
+","-fomit-frame-pointer -floop-block -funroll-loops -flto
+","-fomit-frame-pointer -floop-interchange -floop-strip-mine -funroll-loops
+","-fomit-frame-pointer -floop-interchange -floop-strip-mine -flto
+","-fomit-frame-pointer -floop-interchange -funroll-loops -flto
+","-fomit-frame-pointer -floop-strip-mine -funroll-loops -flto
+","-floop-block -floop-interchange -floop-strip-mine -funroll-loops
+","-floop-block -floop-interchange -floop-strip-mine -flto
+","-floop-block -floop-interchange -funroll-loops -flto
+","-floop-block -floop-strip-mine -funroll-loops -flto
+","-floop-interchange -floop-strip-mine -funroll-loops -flto
+","-march=native -fomit-frame-pointer -floop-block -floop-interchange -floop-strip-mine
+","-march=native -fomit-frame-pointer -floop-block -floop-interchange -funroll-loops
+","-march=native -fomit-frame-pointer -floop-block -floop-interchange -flto
+","-march=native -fomit-frame-pointer -floop-block -floop-strip-mine -funroll-loops
+","-march=native -fomit-frame-pointer -floop-block -floop-strip-mine -flto
+","-march=native -fomit-frame-pointer -floop-block -funroll-loops -flto
+","-march=native -fomit-frame-pointer -floop-interchange -floop-strip-mine -funroll-loops
+","-march=native -fomit-frame-pointer -floop-interchange -floop-strip-mine -flto
+","-march=native -fomit-frame-pointer -floop-interchange -funroll-loops -flto
+","-march=native -fomit-frame-pointer -floop-strip-mine -funroll-loops -flto
+","-march=native -floop-block -floop-interchange -floop-strip-mine -funroll-loops
+","-march=native -floop-block -floop-interchange -floop-strip-mine -flto
+","-march=native -floop-block -floop-interchange -funroll-loops -flto
+","-march=native -floop-block -floop-strip-mine -funroll-loops -flto
+","-march=native -floop-interchange -floop-strip-mine -funroll-loops -flto
+","-fomit-frame-pointer -floop-block -floop-interchange -floop-strip-mine -funroll-loops
+","-fomit-frame-pointer -floop-block -floop-interchange -floop-strip-mine -flto
+","-fomit-frame-pointer -floop-block -floop-interchange -funroll-loops -flto
+","-fomit-frame-pointer -floop-block -floop-strip-mine -funroll-loops -flto
+","-fomit-frame-pointer -floop-interchange -floop-strip-mine -funroll-loops -flto
+","-floop-block -floop-interchange -floop-strip-mine -funroll-loops -flto
+","-march=native -fomit-frame-pointer -floop-block -floop-interchange -floop-strip-mine -funroll-loops
+","-march=native -fomit-frame-pointer -floop-block -floop-interchange -floop-strip-mine -flto
+","-march=native -fomit-frame-pointer -floop-block -floop-interchange -funroll-loops -flto
+","-march=native -fomit-frame-pointer -floop-block -floop-strip-mine -funroll-loops -flto
+","-march=native -fomit-frame-pointer -floop-interchange -floop-strip-mine -funroll-loops -flto
+","-march=native -floop-block -floop-interchange -floop-strip-mine -funroll-loops -flto
+","-fomit-frame-pointer -floop-block -floop-interchange -floop-strip-mine -funroll-loops -flto
+","-march=native -fomit-frame-pointer -floop-block -floop-interchange -floop-strip-mine -funroll-loops -flto
+"
+41.54,43.27,43.35,44.24,43.15,42.74,47.02,41.89,41.86,42.09,41.97,41.19,45.52,43.77,43.28,43.31,42.58,46.98,43.39,43.32,42.83,47.23,43.87,42.59,46.92,42.51,46.99,46.76,41.42,41.65,41.97,41.03,46.55,41.82,41.8,41.0,45.68,41.78,41.11,45.83,41.2,45.77,45.34,43.27,43.03,42.62,46.91,43.39,42.77,47.07,42.61,47.91,46.2,43.26,42.29,46.62,42.75,47.17,46.14,42.63,48.1,46.64,46.72,42.03,42.06,41.0,46.86,43.03,42.2,46.88,41.97,46.68,44.97,42.35,41.47,46.14,41.46,46.07,45.39,41.42,45.86,46.09,45.36,43.42,42.85,47.27,42.93,47.02,46.72,42.95,47.11,47.35,46.8,42.64,47.16,46.55,46.36,46.44,41.91,41.34,45.79,42.11,46.01,44.99,41.04,45.96,45.15,45.04,40.9,45.83,45.21,45.28,45.03,42.62,46.94,46.45,46.84,46.72,46.5,41.19,45.75,46.0,Empty or corrudted file,Empty or corrudted file,45.09,Empty or corrudted file,Empty or corrudted file
+1.6507678,1.7194516,1.7226179,1.7581998,1.7149156,1.6985687,1.8685301,1.664794,1.6634592,1.6724916,1.6677913,1.6368319,1.8090622,1.7393458,1.7198563,1.7210525,1.6921701,1.8669065,1.7241571,1.7214368,1.7021429,1.8767973,1.7432802,1.6923069,1.864621,1.6893151,1.8673931,1.8581088,1.6458446,1.6550813,1.6677086,1.6304645,1.8499012,1.661922,1.660993,1.6291538,1.8151764,1.6601921,1.6338403,1.821423,1.6373552,1.8190622,1.8016741,1.7193743,1.7100389,1.6936468,1.8643463,1.7242211,1.6998271,1.8704633,1.6932559,1.9039828,1.8360304,1.7190911,1.6806033,1.8525091,1.6987167,1.8743689,1.8336998,1.6939137,1.9113762,1.8534897,1.8566384,1.6703419,1.6715977,1.6294967,1.8621359,1.7098136,1.6768708,1.862958,1.6676888,1.854924,1.787111,1.683091,1.6480337,1.8336577,1.6474478,1.8308358,1.8038521,1.6458266,1.82239,1.8317827,1.8027077,1.7253795,1.7029832,1.8786479,1.7061969,1.8685638,1.8567864,1.706781,1.8722734,1.8814823,1.8598714,1.6945508,1.8741497,1.8497713,1.8422218,1.8455593,1.6653792,1.6428085,1.8197011,1.6734131,1.8284034,1.7878954,1.6308795,1.8262639,1.7942861,1.7900505,1.6252011,1.8212379,1.7968079,1.7992564,1.7895227,1.6935462,1.8654144,1.8457533,1.8612383,1.8565502,1.8477126,1.6367168,1.8182086,1.8281295,Empty or corruepted file,Empty or corruepted file,1.7917656,Empty or corruepted file,Empty or corruepted file
+1.0,0.96001848856,0.958246828143,0.93896925859,0.96268829664,0.971923256902,0.883453849426,0.991644783958,0.992355470616,0.986932763127,0.989754586609,1.00849720806,0.912565905097,0.949051862006,0.959796672828,0.959131840222,0.975575387506,0.884206045126,0.957363447799,0.95891043398,0.969880924586,0.879525725175,0.946888534306,0.975346325429,0.885336743393,0.977181839567,0.884017876144,0.888366124893,1.00289715113,0.997358943577,0.989754586609,1.01242992932,0.892373791622,0.993304638929,0.993779904306,1.01317073171,0.909369527145,0.994255624701,1.01045974216,0.906393192232,1.00825242718,0.907581385187,0.916188795765,0.96001848856,0.965372995584,0.974659784139,0.885525474313,0.957363447799,0.971241524433,0.882515402592,0.974888523821,0.867042371113,0.899134199134,0.960240406842,0.982265310948,0.891033891034,0.971695906433,0.880644477422,0.900303424361,0.974431151771,0.863617463617,0.890651801029,0.889126712329,0.988341660719,0.987636709463,1.01317073171,0.886470337175,0.965372995584,0.984360189573,0.886092150171,0.989754586609,0.889888603256,0.923726929064,0.980873671783,1.00168796721,0.900303424361,1.00192957067,0.901671369655,0.915179554968,1.00289715113,0.905800261666,0.901280104144,0.915784832451,0.956701980654,0.96942823804,0.878781468162,0.96762170976,0.883453849426,0.889126712329,0.96717112922,0.881766079389,0.877296726505,0.887606837607,0.974202626642,0.880831212892,0.892373791622,0.89603106126,0.894487510767,0.991171558101,1.00483792937,0.907184974885,0.986464022797,0.902847207129,0.923316292509,1.01218323587,0.903829416884,0.920044296788,0.922291296625,1.01564792176,0.906393192232,0.918823269188,0.917402826855,0.922496113702,0.974659784139,0.884959522795,0.894294940797,0.886848847139,0.889126712329,0.893333333333,1.00849720806,0.907978142077,0.903043478261,,,0.921268573963,,
+1.0,0.96005482213,0.958290169863,0.938896591844,0.96259419414,0.97185812973,0.883457965167,0.99157481346,0.992370477136,0.987011115631,0.989792787623,1.00851394697,0.912499194334,0.949073956427,0.959828911288,0.959161791985,0.975533015268,0.884226285569,0.957434679241,0.958947665113,0.969817398997,0.879566376188,0.94693199636,0.97545415669,0.88531009787,0.977181699258,0.88399587639,0.888412885187,1.00299129092,0.997393783617,0.989841870456,1.0124524637,0.892354575477,0.993288373341,0.993843923484,1.01326701015,0.909425552249,0.99432336776,1.01036055972,0.906306662428,1.00819162513,0.907482877716,0.916241067128,0.960097984482,0.965339326491,0.974682442644,0.885440542886,0.95739914098,0.971138652867,0.882544875379,0.974907454922,0.867007727171,0.899096115184,0.960256149311,0.982247148985,0.891098348721,0.971773456987,0.880705927206,0.900238850438,0.974528867675,0.863654051986,0.890626907719,0.889116480624,0.988281381195,0.987538927578,1.01305378526,0.886491582059,0.965466528047,0.984433505551,0.886100384442,0.98985362257,0.889938240057,0.923707480957,0.980795334299,1.00165900734,0.900259519538,1.00201523836,0.901647105655,0.915134782946,1.00300226038,0.905825756287,0.901181018906,0.915715731397,0.956756354182,0.969338863707,0.878699941591,0.967513069564,0.883442031789,0.889045611278,0.967181964177,0.881691637557,0.877376204921,0.887570936356,0.974162474209,0.880808934313,0.892417240985,0.896074403202,0.894453946833,0.991226382556,1.00484493476,0.907164259009,0.986467597272,0.902846603764,0.923302224504,1.01219483107,0.903904304301,0.9200137035,0.922190630935,1.01573140702,0.906398774152,0.91872247445,0.917472240199,0.922462620899,0.974740340712,0.884933556855,0.894359934234,0.886919101117,0.889158720297,0.89341156195,1.00858486942,0.907908916502,0.902981873002,,,0.921307898756,,
