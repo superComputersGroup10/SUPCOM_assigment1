@@ -8,13 +8,20 @@ import os
 
 def readElapsedAndGrindTime(file_name):
     f=open(file_name)
-    lines=f.readlines()
-    if(("Elapsed time" in lines[85]) and ("Grind time" in lines[86])):
-        Elapsed_time=float(re.findall("\d+\.\d+", lines[85])[0])
-        Grind_time=float(re.findall("\d+\.\d+", lines[86])[0])
+    fileStr=f.read().replace('(us/z/c)', '')
+    f.close()
+
+    print(fileStr)
+    ElapsedTimeString = re.search(r'Elapsed time\s+=\s+\d+\.\d+', fileStr)
+    GrindTimeString = re.search(r'Grind time\s+=\s+\d+.\d+', fileStr)
+    print(ElapsedTimeString.group(0))
+
+    if(not(ElapsedTimeString) or not(GrindTimeString)):
+        Elapsed_time = 'Empty or corrudted file'
+        Grind_time = 'Empty or corruepted file'
     else:
-        Elapsed_time = 'Empty file'
-        Grind_time = 'Empty file'
+        Elapsed_time=float(re.findall("\d+\.\d+", ElapsedTimeString.group(0))[0])
+        Grind_time=float(re.findall("\d+\.\d+", Grind_time.group(0))[0])
     return Elapsed_time, Grind_time
 
 def main():
