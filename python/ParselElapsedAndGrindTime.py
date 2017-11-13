@@ -54,8 +54,9 @@ def main():
         file_name = directory + '/' + root_name + str(i+1)
         if os.path.isfile(file_name):
             Elapsed_time[i], Grind_time[i] = readElapsedAndGrindTime(file_name)
-            Elapsed_time_speed_up [i] = baseElapsed_time / Elapsed_time[i]
-            Grind_time_speed_up [i] = baseGrind_time / Grind_time[i]
+            if (isinstance(Elapsed_time[i], float) and isinstance(Grind_time[i], float)):
+                Elapsed_time_speed_up [i] = baseElapsed_time / Elapsed_time[i]
+                Grind_time_speed_up [i] = baseGrind_time / Grind_time[i]
         else:
             Elapsed_time[i]='The file was not found'
             Grind_time[i]='The file was not found'
