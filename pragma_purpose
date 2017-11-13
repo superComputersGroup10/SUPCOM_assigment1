@@ -1,0 +1,364 @@
+====================================================================================================
+====================================================================================================
+
+==========
+GCC
+==========
+1. #pragma optimize : set global optimization options for functions defined later in the source file
+
+2. #pragma ivdep : ignores loop carried dependencies for given vectorization
+====================================================================================================
+====================================================================================================
+
+
+====================================================================================================
+====================================================================================================
+
+==========
+INTEL
+==========
+________________________________________________________________________________________________________________________________
+• #pragma simd : 
+==========
+Syntax
+==========
+#pragma simd [clause[ [,] clause]...
+
+
+==========
+clause
+==========
+Can be any of the following:
+(i)     vectorlenght(n1,n2]...)
+(ii)    vectorlengthfor(data type)
+(iii)   private(var1[, var2]...)
+(iV)    firstprivate(var1[, var2]...)
+(v)     lastprivate(var1[, var2]...)
+(vi)    linear(var1:step1 [,var2:step2]...)
+(vii)   linear(var1:step1 [,var2:step2]...)
+(viii)  [no]assert
+(ix)    [no]vecremainder
+
+
+============
+Description
+============
+The simd pragma is used to guide the compiler to vectorize more loops. Vectorization using the simd pragma complements (but does not replace) the fully automatic approach.
+Without explicit vectorlength() and vectorlengthfor() clauses, the compiler will choose a vectorlength using its own cost model. Misclassification of variables into private, firstprivate, lastprivate, linear, and reduction, or lack of appropriate classification of variables may cause unintended consequences such as runtime failures and/or incorrect result.
+
+============
+Link
+============
+https://software.intel.com/en-us/node/524555
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+• #pragma ivdep:
+ 
+==========
+Syntax
+==========
+#pragma ivdep
+
+==========
+Arguments
+==========
+none
+
+============
+Description
+============
+The ivdep pragma instructs the compiler to ignore assumed vector dependencies. To ensure correct code, the compiler treats an assumed dependence as a proven dependence, which prevents vectorization. This pragma overrides that decision. Use this pragma only when you know that the assumed loop dependencies are safe to ignore.
+
+In addition to the ivdep pragma, the vector pragma can be used to override the efficiency heuristics of the vectorizer.
+
+============
+Link
+============
+https://software.intel.com/en-us/node/524501
+_____________________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________________________________
+• #pragma loop_count:
+
+==========
+Syntax
+==========
+#pragma loop_count (n)
+
+#pragma loop_count =n
+.
+.
+. (check the official documentation for more combination of syntaxes
+
+==========
+Arguments
+==========
+(n) or =n (non -negative integer values)
+(n1[,n2]...) or = n1[,n2]...
+
+
+============
+Description
+============
+The loop_count pragma specifies the minimum, maximum, or average number of iterations for a for loop. In addition, a list of commonly occurring values can be specified to help the compiler generate multiple versions and perform complete unrolling.
+
+You can specify more than one pragma for a single loop; however, do not duplicate the pragma.
+============
+Link
+============
+________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________
+• #pragma vector : 
+
+==========
+Syntax
+==========
+#pragma vector {always[assert]|aligned|unaligned|temporal|nontemporal|[no]vecremainder|[no]mask_readwrite}
+
+#pragma vector nontemporal[(var1[, var2, ...])]
+
+==========
+Arguments
+==========
+always
+aligned
+unaligned
+nontemporal
+temporal
+vecremainder
+
+============
+Description
+============
+The vector pragma indicates that the loop should be vectorized, if it is legal to do so, ignoring normal heuristic decisions about profitability. The vector pragma takes several argument keywords to specify the kind of loop vectorization required. These keywords are aligned, unaligned, always, temporal, and nontemporal. The compiler does not apply the vector pragma to nested loops, each nested loop needs a preceding pragma statement. Place the pragma before the loop control statement.
+
+Using the aligned/unaligned keywords
+
+When the aligned/unaligned argument keyword is used with this pragma, it indicates that the loop should be vectorized using aligned/unaligned data movement instructions for all array references. Specify only one argument keyword: aligned or unaligned.
+============
+Link
+============
+https://software.intel.com/en-us/node/524559
+________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________
+
+• #pragma inline
+==========
+Syntax
+==========
+#pragma inline [recursive]
+
+#pragma noinline
+
+==========
+Arguments
+==========
+
+recursive  (indicates that the pragma applies to all of the calls that are called by these calls, recursively, down the call chain)
+============
+Description
+============
+These are statement-specific inlining pragmas. Each can be placed before a C/C++ statement, and will then apply to all of the calls within a statement and all calls within statements nested within that statement.
+
+The inline pragma is a hint to the compiler that the user prefers that the calls in question be inlined, but expects the compiler not to inline them if its heuristics determine that the inlining would be overly aggressive and might slow down the compilation of the source code excessively, create too large of an executable, or degrade performance.
+
+These statement-specific pragmas take precedence over the corresponding function-specific pragmas.
+============
+Link
+============
+https://software.intel.com/en-us/node/524498
+________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________
+
+• #pragma noinline
+==========
+Syntax
+==========
+#pragma noinline
+
+==========
+Arguments
+==========
+
+
+============
+Description
+============
+The noinline pragma indicates that the calls in question should not be inlined.
+
+============
+Link
+============
+https://software.intel.com/en-us/node/524498
+________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________
+
+
+• #pragma forceinline
+==========
+Syntax
+==========
+
+#pragma forceinline [recursive]
+==========
+Arguments
+==========
+recursive
+
+============
+Description
+============
+The forceinline pragma indicates that the calls in question should be inlined whenever the compiler is capable of doing so.
+
+============
+Link
+============
+https://software.intel.com/en-us/node/524498
+________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________
+
+
+• #pragma unroll
+==========
+Syntax
+==========
+#pragma unroll
+
+#pragma unroll (n)
+
+==========
+Arguments
+==========
+n (The unrolling factor representing the number of times to unroll a loop; it must be an integer constant from 0 through 255.)
+
+============
+Description
+============
+The unroll[n] pragma tells the compiler how many times to unroll a counted loop.
+
+The unroll pragma must precede the for statement for each for loop it affects. If n is specified, the optimizer unrolls the loop n times. If n is omitted or if it is outside the allowed range, the optimizer assigns the number of times to unroll the loop.
+
+This pragma is supported only when option O3 is set. The unroll pragma overrides any setting of loop unrolling from the command line.
+
+The pragma can be applied for the innermost loop nest as well as for the outer loop nest. If applied to outer loop nests, the current implementation supports complete outer loop unrolling. The loops inside the loop nest are either not unrolled at all or completely unrolled. The compiler generates correct code by comparing n and the loop count.
+============
+Link
+============
+https://software.intel.com/en-us/node/524556
+________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________
+
+________________________________________________________________________________________________________________________________
+
+• #pragma nounroll
+==========
+Syntax
+==========
+#pragma nounroll
+
+==========
+Arguments
+==========
+none
+
+============
+Description
+============
+When unrolling a loop increases register pressure and code size, it may be necessary to prevent unrolling of a loop. In such cases, use the nounroll pragma. The nounroll pragma instructs the compiler not to unroll a specified loop.
+============
+Link
+============
+https://software.intel.com/en-us/node/524556
+________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________
+
+
+• #pragma unroll_and_jam
+==========
+Syntax
+==========
+#pragma unroll_and_jam
+
+#pragma unroll_and_jam (n)
+
+==========
+Arguments
+==========
+n (The unrolling factor representing the number of times to unroll a loop; it must be an integer constant from 0 through 255)
+
+============
+Description
+============
+The unroll_and_jam pragma partially unrolls one or more loops higher in the nest than the innermost loop and fuses/jams the resulting loops back together. This transformation allows more reuses in the loop.
+
+This pragma is not effective on innermost loops. Ensure that the immediately following loop is not the innermost loop after compiler-initiated interchanges are completed.
+
+Specifying this pragma is a hint to the compiler that the unroll and jam sequence is legal and profitable. The compiler enables this transformation whenever possible.
+
+The unroll_and_jam pragma must precede the for statement for each for loop it affects. If n is specified, the optimizer unrolls the loop n times. If n is omitted or if it is outside the allowed range, the optimizer assigns the number of times to unroll the loop. The compiler generates correct code by comparing n and the loop count.
+
+This pragma is supported only when compiler option O3 is set. The unroll_and_jam pragma overrides any setting of loop unrolling from the command line.
+============
+Link
+============
+https://software.intel.com/en-us/node/524557
+________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________
+
+
+• #pragma nofusion
+==========
+Syntax
+==========
+#pragma nofusion
+
+==========
+Arguments
+==========
+none
+
+============
+Description
+============
+When unrolling a loop increases register pressure and code size it may be necessary to prevent unrolling of a nested loop or an imperfect nested loop. In such cases, use the nounroll_and_jam pragma. The nounroll_and_jam pragma hints to the compiler not to unroll a specified loop
+
+============
+Link
+============
+https://software.intel.com/en-us/node/524557
+________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________
+
+
+• #pragma distribute_point
+==========
+Syntax
+==========
+#pragma distribute_poin
+
+==========
+Arguments
+==========
+none
+
+============
+Description
+============
+The distribute_point pragma is used to suggest to the compiler to split large loops into smaller ones; this is particularly useful in cases where optimizations like vectorization cannot take place due to excessive register usage.
+
+The following rules apply to this pragma:
+
+(i)      When the pragma is placed inside a loop, the compiler distributes the loop at that point. All loop-carried dependencies are ignored.
+
+(ii)     When inside the loop, pragmas cannot be placed within an if statement.
+
+(iii)    When the pragma is placed outside the loop, the compiler distributes the loop based on an internal heuristic. The compiler determines where to distribute the loops and observes data dependency. If the pragmas are placed inside the loop, the compiler supports multiple instances of the pragma.
+
+============
+Link
+============
+https://software.intel.com/en-us/node/524497
+________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________
+
+
+====================================================================================================
