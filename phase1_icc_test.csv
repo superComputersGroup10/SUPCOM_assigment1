@@ -15,5 +15,5 @@
 ","-xHost -unroll -ipo
 ","-march=native -xHost -unroll -ipo
 "
-Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file
-Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file,Empty file
+37.58,37.74,41.56,44.37,38.41,37.84,41.27,37.98,41.18,43.79,37.8,41.07,41.01,41.04,41.21
+1.4935113,1.4999251,1.6516933,1.7633857,1.5265543,1.5038269,1.6398668,1.5091147,1.6366272,1.7403672,1.501987,1.6320582,1.6296038,1.6309452,1.6377221
