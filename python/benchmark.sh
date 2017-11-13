@@ -56,7 +56,7 @@ do
     make --directory=$CODE_DIRECTORY --file=$MAKE_FILE
 
     if [ "$MODE" = "supermuc" ]; then
-        llrun -n $NUM_TASKS $BINARY > $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$((c+1))
+        llrun -n $NUM_TASKS $BINARY > $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$c
     else
         $BINARY > $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$c
     fi
