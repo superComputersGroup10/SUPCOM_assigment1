@@ -5,6 +5,7 @@ import argparse
 
 def gen_combinations(flags, output_file):
     with open(output_file, "w") as f:
+        f.write("\n"); #The first line is empty to generate the base case (compilation without flags)
         for c in range(1, len(flags) + 1):
             for c_flag in list(itertools.combinations(flags, c)):
                 f.write(' '.join(c_flag) + "\n")
