@@ -53,7 +53,7 @@ do
     echo ""
     echo "*****************************************************"
     echo "Running with $c threads."
-    python $PYTHON_GEN_BATCH -n $c -o $BATCH_FILE
+    python $PYTHON_GEN_BATCH -n $c -o $BATCH_FILE -l $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$c 
 
     if [ "$MODE" = "supermuc" ]; then
         llsubmit $BATCH_FILE
