@@ -130,7 +130,7 @@ vecremainder
 ============
 Description
 ============
-The vector pragma indicates that the loop should be vectorized, if it is legal to do so, ignoring normal heuristic decisions about profitability. The vector pragma takes several argument keywords to specify the kind of loop vectorization required. These keywords are aligned, unaligned, always, temporal, and nontemporal. The compiler does not apply the vector pragma to nested loops, each nested loop needs a preceding pragma statement. Place the pragma before the loop control statement.
+The vector pragma indicates that the loop should be vectorized, if it is legal to do so (clarify what legal means here, does it talk about loop dependencies?) , ignoring normal heuristic decisions about profitability. The vector pragma takes several argument keywords to specify the kind of loop vectorization required. These keywords are aligned, unaligned, always, temporal, and nontemporal. The compiler does not apply the vector pragma to nested loops, each nested loop needs a preceding pragma statement. Place the pragma before the loop control statement.
 
 Using the aligned/unaligned keywords
 
