@@ -15,11 +15,14 @@ int main()
      * This assembly copies src to dst and add 1 to dst
      *
      * */
+
+    // Intel Syntax
     asm ("mov %1, %0\n\t"
          "add $1, %0"
          : "=r" (intel_dst)
          : "r" (intel_src));
 
+    // AT&T Syntax
     int at_src = 5;
     int at_dst;
     asm ("movl %1, %0\n\t"
