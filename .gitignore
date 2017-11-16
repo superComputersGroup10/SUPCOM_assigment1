@@ -7,3 +7,4 @@ lulesh2.0
 4_2_compile_flags/*
 MakefileBenchmark
 *.ipynb
+*/*.out
