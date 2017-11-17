@@ -23,7 +23,7 @@ def writeBashFile(numThreads, output, luleshOutput):
 . /etc/profile
 . /etc/profile.d/modules.sh
 export OMP_NUM_THREADS=%i
-./../lulesh2.0 > %s""" % (numThreads, numThreads, luleshOutput)
+./../lulesh2.0 > %s""" % (16, numThreads, luleshOutput)
         f = open(output, 'w')
         f.write(bashString)
         f.closed
