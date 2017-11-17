@@ -2,8 +2,8 @@
 
 # Set this varible to supermuc to run it in the supermuc, otherwise it will run without calling modules or
 # llrun
-#MODE="supermuc"
-MODE = "AnibalSuperFunComputer"
+MODE="supermuc"
+#MODE = "AnibalSuperFunComputer"
 
 COMPILER="mpiCC" # Two possible values, g++ or icc
 MAX_TWO_POWER_PROCESS=3
@@ -39,7 +39,7 @@ for (( c=1; c<=$MAX_TWO_POWER_PROCESS; c++  ))
 do
     echo ""
     echo "*****************************************************"
-    echo "Running with $c threads."
+    echo "Running with $c*$c*$c processes."
     python $PYTHON_GEN_BATCH -n $c -o $BATCH_FILE -l $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$c 
 
     if [ "$MODE" = "supermuc" ]; then
