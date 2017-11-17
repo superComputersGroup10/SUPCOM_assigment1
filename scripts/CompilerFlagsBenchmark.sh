@@ -2,7 +2,7 @@
 
 # Set this varible to supermuc to run it in the supermuc, otherwise it will run without calling modules or
 # llrun
-MODE="supermuc"
+MODE="jsupermuc"
 
 COMPILER="g++" # Two possible values, g++ or icc
 NUM_TASKS=1
@@ -25,15 +25,12 @@ echo "Starting..."
 echo "Results will be saved in $OUTPUT_DIRECTORY directory"
 
 if [ "$COMPILER" = "g++" ]; then
-    NUM_COMBINATIONS=127
     if [ "$MODE" = "supermuc" ]; then
         module unload gcc
         module load gcc/6
     fi
-elif [ "$COMPILER" = "icc" ]; then
-    NUM_COMBINATIONS=15
-else
-    (>&2 echo "ERROR: Unknown compiler")
+elif [ "$COMPILER" != "icc" ]; then
+    (>&2 echo "ERROR: Unknown compiler. Supported compilers: g++, icc")
     exit
 fi
 
@@ -42,12 +39,13 @@ if ["$MODE" = "supermuc"]; then
 fi
 
 python $PYTHON_GEN_SCRIPT -c $COMPILER -o $FLAGS_FILE
+NUM_COMBINATIONS=$(wc -l < $FLAGS_FILE)
 mkdir -p -v $OUTPUT_DIRECTORY
 
 make --directory=$CODE_DIRECTORY clean
 
 # Since the first line of the comb_flags is a blank line, we have to loop over $NUM_COMBINATIONS + 1
-for (( c=0; c<=$NUM_COMBINATIONS; c++  ))
+for (( c=0; c<$NUM_COMBINATIONS; c++  ))
 do
     echo ""
     echo "*****************************************************"
