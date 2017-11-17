@@ -9,7 +9,7 @@ COMPILER="g++" # Two possible values, g++ or icc
 MAX_NUM_TASKS=4
 SUPERMUC_PHASE=1
 
-PYTHON_GEN_BATCH="BatchScripGenerator.py"
+PYTHON_GEN_BATCH="OpenMPBatchScripGenerator.py"
 PYTHON_PARSER="ParselElapsedAndGrindTime.py"
 FLAGS_FILE="flags_combination"
 
