@@ -7,7 +7,6 @@ from os.path import isfile, join
 import os
 
 def readElapsedAndGrindTime(file_name):
-    print(file_name)
     f=open(file_name)
     fileStr=f.read().replace('(us/z/c)', '')
     f.close()
