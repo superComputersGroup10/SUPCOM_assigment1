@@ -35,7 +35,7 @@ make --directory=$CODE_DIRECTORY clean
 make --directory=$CODE_DIRECTORY --file=$MAKE_FILE
 
 # Since the first line of the comb_flags is a blank line, we have to loop over $NUM_COMBINATIONS + 1
-for (( c=1; c<=$MAX_NUM_TASKS; c++  ))
+for (( c=1; c<=$MAX_TWO_POWER_PROCESS; c++  ))
 do
     echo ""
     echo "*****************************************************"
