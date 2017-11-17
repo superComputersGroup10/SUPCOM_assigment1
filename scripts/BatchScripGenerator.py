@@ -6,11 +6,7 @@ def writeBashFile(numThreads, output, luleshOutput):
 #@ job_name = pos-lulesh-openmp
 #@ job_type = MPICH
 # #####################################
-# for fat node we need class = micro
-# #@ class = micro
-# #####################################
-# // for thin node we need class = fat
-#@ class = fat
+#@ class = test
 # ######################################@ output = pos_lulesh_openmp_$(jobid).out
 #@ error = pos_lulesh_openmp_$(jobid).out
 #@ node = 1
