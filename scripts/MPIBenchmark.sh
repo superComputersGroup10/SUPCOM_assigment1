@@ -40,7 +40,7 @@ do
     echo ""
     echo "*****************************************************"
     echo "Running with $c*$c*$c processes."
-    python $PYTHON_GEN_BATCH -n $c -o $BATCH_FILE -l $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$c 
+    python $PYTHON_GEN_BATCH -c $c -o $BATCH_FILE -l $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$c 
 
     if [ "$MODE" = "supermuc" ]; then
         llsubmit $BATCH_FILE
