@@ -24,7 +24,7 @@ $HOME/.bashrc
 module unload mpi.ibm
 module load mpi.intel
 
-exec -n %i ./lulesh2.0> %s""" % (16, numThreads, luleshOutput)
+exec -n %i ./lulesh2.0> %s""" % (16, numProcesses, luleshOutput)
         f = open(output, 'w')
         f.write(bashString)
         f.closed
