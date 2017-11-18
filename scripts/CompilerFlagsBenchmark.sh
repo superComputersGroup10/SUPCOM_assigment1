@@ -2,7 +2,7 @@
 
 # Set this varible to supermuc to run it in the supermuc, otherwise it will run without calling modules or
 # llrun
-MODE="jsupermuc"
+MODE="supermuc"
 
 COMPILER="g++" # Two possible values, g++ or icc
 NUM_TASKS=1
