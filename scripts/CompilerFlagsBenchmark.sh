@@ -62,6 +62,9 @@ do
     make --directory=$CODE_DIRECTORY --file=$MAKE_FILE clean
 done
 
+# We need to remove first line of $FLAGS_FILE to make $PYTHON_PARSER works properly
+sed '1d' $FLAGS_FILE > tmpfile; mv tmpfile $FLAGS_FILE
+
 BASE=0
 python $PYTHON_PARSER -r $OUTPUT_FILES_SUFIX -d $OUTPUT_DIRECTORY -f $FLAGS_FILE \
     -o $OUTPUT_DIRECTORY/$OUTPUT_CVS_FILENAME -b $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$BASE
