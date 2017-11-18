@@ -4,7 +4,7 @@ import argparse
 
 def writeMakeFile(flags, compiler, output):
     makefilestring="""#default build suggestion of MPI + OPENMP with gcc on Livermore machines you might have to change the compiler name
-
+    
 SHELL = /bin/sh
 .SUFFIXES: .cc .o
 
@@ -18,11 +18,11 @@ MPICXX = mpig++ -DUSE_MPI=1
 CXX = $(SERCXX)
 
 SOURCES2.0 = \\
-        lulesh.cc \\
-        lulesh-comm.cc \\
-        lulesh-viz.cc \\
-        lulesh-util.cc \\
-        lulesh-init.cc
+	lulesh.cc \\
+	lulesh-comm.cc \\
+	lulesh-viz.cc \\
+	lulesh-util.cc \\
+	lulesh-init.cc
 OBJECTS2.0 = $(SOURCES2.0:.cc=.o)
 
 #Default build suggestions with OpenMP for g++
@@ -30,8 +30,8 @@ CXXFLAGS = -O3 %s
 LDFLAGS = -O3
 
 #Below are reasonable default flags for a serial build
-#CXXFLAGS = -g -O3 -I. -Wall
-#LDFLAGS = -g -O3
+#CXXFLAGS = -g -O3 -I. -Wall 
+#LDFLAGS = -g -O3 
 
 #common places you might find silo on the Livermore machines.
 #SILO_INCDIR = /opt/local/include
@@ -48,27 +48,27 @@ LDFLAGS = -O3
 #LDFLAGS = -g -L${SILO_LIBDIR} -Wl,-rpath -Wl,${SILO_LIBDIR} -lsiloh5 -lhdf5
 
 .cc.o: lulesh.h
-        @echo "Building $<"
-        $(CXX) -c $(CXXFLAGS) -o $@  $<
+	@echo "Building $<"
+	$(CXX) -c $(CXXFLAGS) -o $@  $<
 
 all: $(LULESH_EXEC)
 
 lulesh2.0: $(OBJECTS2.0)
-        @echo "Linking"
-        $(CXX) $(OBJECTS2.0) $(LDFLAGS) -lm -o $@
+	@echo "Linking"
+	$(CXX) $(OBJECTS2.0) $(LDFLAGS) -lm -o $@
 
 clean:
-        /bin/rm -f *.o *~ $(OBJECTS) $(LULESH_EXEC)
-        /bin/rm -rf *.dSYM
+	/bin/rm -f *.o *~ $(OBJECTS) $(LULESH_EXEC)
+	/bin/rm -rf *.dSYM
 
 tar: clean
-        cd .. ; tar cvf lulesh-2.0.tar LULESH-2.0 ; mv lulesh-2.0.tar LULESH-2.0
+	cd .. ; tar cvf lulesh-2.0.tar LULESH-2.0 ; mv lulesh-2.0.tar LULESH-2.0
 """ % (compiler, flags)
     f = open(output, 'w')
     f.write(makefilestring)
     f.closed
     print('Generated Makefile with flags: %s  ' % (flags.replace('\n','')))
-
+    
 
 def main():
     parser = argparse.ArgumentParser(description="Generates a Makefile with the flags indicated flags")
@@ -80,12 +80,12 @@ def main():
 
     filepath = args.input_file
     row = int(args.row)
-    compiler = args.compiler
-    output = args.output
+    compiler = args.compiler 
+    output = args.output 
 
-    fp=open(filepath)
+    fp=open(filepath) 
     flags=fp.readlines()
-
+    
     writeMakeFile(flags[row], compiler, output)
 
 if __name__ == "__main__":
