@@ -17,7 +17,7 @@ CODE_DIRECTORY="$(dirname $(pwd))"
 MAKE_FILE="$CODE_DIRECTORY/HybridMakefile"
 BATCH_FILE="$CODE_DIRECTORY/HybridRunBatch"
 BINARY="$CODE_DIRECTORY/lulesh2.0"
-OUTPUT_DIRECTORY="$CODE_DIRECTORY/5_2_MPI/phase$SUPERMUC_PHASE/$COMPILER"
+OUTPUT_DIRECTORY="$CODE_DIRECTORY/5_2_Hybrid/phase$SUPERMUC_PHASE/$COMPILER"
 OUTPUT_FILES_SUFIX="output_"
 
 echo "Starting..."
@@ -43,13 +43,13 @@ do
         echo ""
         echo "*****************************************************"
         echo "Running with $c*$c*$c processes and $n threads."
-        python $PYTHON_GEN_BATCH -n $n -c $c -o $BATCH_FILE -l $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$c 
+        python $PYTHON_GEN_BATCH -n $n -c $c -o $BATCH_FILE -l $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$c.$n
 
         if [ "$MODE" = "supermuc" ]; then
             llsubmit $BATCH_FILE
         else
             export OMP_NUM_THREADS=c
-            $BINARY > $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$c
+            $BINARY > $OUTPUT_DIRECTORY/$OUTPUT_FILES_SUFIX$c.$n
         fi
     done
 done
