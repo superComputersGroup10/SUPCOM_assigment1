@@ -24,14 +24,14 @@ OBJECTS2.0 = $(SOURCES2.0:.cc=.o)
 
 ifeq ($(compiler),g++) 
 	CXX = $(SERCXX)
-	CXXFLAGS = -O3 -fopenmp -I.
-	LDFLAGS = -O3 -fopenmp
+	CXXFLAGS = -O3 -fopenmp -I. -march=native -fomit-frame-pointer -floop-block -floop-strip-mine -funroll-loops
+	LDFLAGS = -O3 -fopenmp -march=native -fomit-frame-pointer -floop-block -floop-strip-mine -funroll-loops
 endif
 
 ifeq ($(compiler),icc) 
 	CXX = $(SERINTEL)
-	CXXFLAGS = -O3 -qopenmp -I.
-	LDFLAGS = -O3 -qopenmp
+	CXXFLAGS = -O3 -qopenmp -I. -march=native -unroll
+	LDFLAGS = -O3 -qopenmp -march=native -unroll
 endif
 
 #Below are reasonable default flags for a serial build
