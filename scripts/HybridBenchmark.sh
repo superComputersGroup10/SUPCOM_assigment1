@@ -6,8 +6,8 @@ MODE="supermuc"
 #MODE = "AnibalSuperFunComputer"
 
 COMPILER="mpiCC" # Two possible values, g++ or icc
-TWO_POWER_PROCESS=3
-MAX_NUM_TASKS=4
+TWO_POWER_PROCESS=2
+MAX_NUM_TASKS=2
 SUPERMUC_PHASE=1
 
 PYTHON_GEN_BATCH="HybridBatchScripGenerator.py"
