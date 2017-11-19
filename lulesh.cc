@@ -162,6 +162,9 @@ Additional BSD Notice
 
 #include "lulesh.h"
 
+//#pragma GCC optimize ("O3")
+//static inline
+//void ApplyMaterialPropertiesForElems(Domain& domain, Real_t vnew[]) __attribute__ (());
 
 /*********************************/
 /* Data structure implementation */
@@ -2369,6 +2372,7 @@ void ApplyMaterialPropertiesForElems(Domain& domain, Real_t vnew[])
        // Bound the updated relative volumes with eosvmin/max
        if (eosvmin != Real_t(0.)) {
 #pragma omp for firstprivate(numElem)
+#pragma GCC ivdep
           for(Index_t i=0 ; i<numElem ; ++i) {
              if (vnew[i] < eosvmin)
                 vnew[i] = eosvmin ;
@@ -2377,6 +2381,7 @@ void ApplyMaterialPropertiesForElems(Domain& domain, Real_t vnew[])
 
        if (eosvmax != Real_t(0.)) {
 #pragma omp for nowait firstprivate(numElem)
+#pragma GCC ivdep
           for(Index_t i=0 ; i<numElem ; ++i) {
              if (vnew[i] > eosvmax)
                 vnew[i] = eosvmax ;
@@ -2387,6 +2392,7 @@ void ApplyMaterialPropertiesForElems(Domain& domain, Real_t vnew[])
        // it's representative of something in the full code -
        // just leave it in, please
 #pragma omp for nowait firstprivate(numElem)
+#pragma GCC ivdep
        for (Index_t i=0; i<numElem; ++i) {
           Real_t vc = domain.v(i) ;
           if (eosvmin != Real_t(0.)) {
