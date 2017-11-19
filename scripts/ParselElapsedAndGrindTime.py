@@ -12,7 +12,7 @@ def readElapsedAndGrindTime(file_name):
     f.close()
 
     ElapsedTimeString = re.search(r'Elapsed time\s+=\s+\d+\.\d+', fileStr)
-    GrindTimeString = re.search(r'(\s+\d+.\d+\s+overall)', fileStr)
+    GrindTimeString = re.search(r'\d+.\d+\s+overall', fileStr)
 
     if(not(ElapsedTimeString) or not(GrindTimeString)):
         Elapsed_time = 'Empty or corrudted file'
