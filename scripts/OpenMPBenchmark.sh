@@ -5,7 +5,7 @@
 MODE="supermuc"
 #MODE = "AnibalSuperFunComputer"
 
-COMPILER="g++" # Two possible values, g++ or icc
+COMPILER="icc" # Two possible values, g++ or icc
 MAX_NUM_TASKS=32
 SUPERMUC_PHASE=1
 
