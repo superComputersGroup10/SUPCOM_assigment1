@@ -4,9 +4,124 @@
 ==========
 GCC
 ==========
-1. #pragma optimize : set global optimization options for functions defined later in the source file
 
-2. #pragma ivdep : ignores loop carried dependencies for given vectorization
+________________________________________________________________________________________________________________________________
+
+1. #pragma GCC optimize : 
+============
+Description
+============
+This pragma allows you to set target specific options for functions defined later in the source file. One or more strings can be specified. Each function that is defined after this point is as if attribute((target("STRING"))) was specified for that function. The parenthesis around the options is optional. See Declaring Attributes of Functions, for more information about the target attribute and the attribute syntax.
+
+==========
+Syntax
+==========
+IMPORTANT NOTE: THIS FLAG CAN TAKE A TON OF ATTRIBUTES THAT HAS TO BE TAKEN INTO ACCOUNT. THE LINK FOR THE ATTRIBUTES IS BELOW (2ND ONE)
+
+==========
+Attributes
+==========
+1. alias ("target") : The alias attribute causes the declaration to be emitted as an alias for another symbol, which must be specified (NOT TESTED)
+
+2. aligned (alignment) *  : This attribute specifies a minimum alignment for the function, measured in bytes. 
+
+
+3. alloc_align : The alloc_align attribute is used to tell the compiler that the function return value points to memory, where the returned pointer minimum alignment is given by one of the functions parameters. GCC uses this information to improve pointer alignment analysis. (NOT TESTED SINCE THE FUNCTION RETURN IS VOID)
+
+4. alloc_size : The alloc_size attribute is used to tell the compiler that the function return value points to memory, where the size is given by one or two of the functions parameters. GCC uses this information to improve the correctness of __builtin_object_size. (NOT TESTED SINCE FUNCTION DOESNT RETURN IS VOID)
+
+
+5. always_inline *: Generally, functions are not inlined unless optimization is specified. For functions declared inline, this attribute inlines the function independent of any restrictions that otherwise apply to inlining. Failure to inline such a function is diagnosed as an error. Note that if such a function is called indirectly the compiler may or may not inline it depending on optimization level and a failure to inline an indirect call may or may not be diagnosed. (TESTED)
+
+
+6. artificial: This attribute is useful for small inline wrappers that if possible should appear during debugging as a unit. Depending on the debug info format it either means marking the function as artificial or using the caller location for all instructions within the inlined body. (NOT TESTED SINCE WE ARE NOT DEBUGGING)
+
+
+7. assume_aligned : The assume_aligned attribute is used to tell the compiler that the function return value points to memory, where the returned pointer minimum alignment is given by the first argument. If the attribute has two arguments, the second argument is misalignment offset. (NOT TESTED SINCE THE FUNCTION RETURN TYPE IS VOID)
+
+
+8. bnd_instrument : (NOT TESTED SINCE NO PROFILING IS BEING DONE)
+
+
+9. bnd_legacy  : (SAME AS ABOVE)
+
+
+10. cold : The cold attribute on functions is used to inform the compiler that the function is unlikely to be executed. The function is optimized for size rather than speed and on many targets it is placed into a special subsection of the text section so all cold functions appear close together, improving code locality of non-cold parts of program. The paths leading to calls of cold functions within code are marked as unlikely by the branch prediction mechanism. It is thus useful to mark functions used to handle unlikely conditions, such as perror, as cold to improve optimization of hot functions that do call marked functions in rare occasions. (NOT TESTED SINCE WE ARE OPTIMIZING THE CRITICAL FUNCTIONS)
+
+
+11. const Many functions do not examine any values except their arguments, and have no effects except the return value. Basically this is just slightly more strict class than the pure attribute below, since function is not allowed to read global memory. (NOT TESTED SINCE FUNCTION ARGUMENTS ARE POTINTERS AND WITHIN THE FUNCTION CALLS THERE ARE POINTER ALLOCATIONS (DID ONLY A CURSORY CHECK))
+
+
+12. constructor destructor constructor (priority) destructor (priority)  (???? RESOLVE )
+
+
+13. deprecated deprecated (msg) (NOT TESTED SINCE WE DON'T WANT TO TEST IT FOR DEPRECATION)
+
+
+14. externally_visible : This attribute, attached to a global variable or function, nullifies the effect of the -fwhole-program command-line option, so the object remains visible outside the current compilation unit. (???RESOLVE)
+
+
+15. flatten Generally, inlining into a function is limited. For a function marked with this attribute, every call inside this function is inlined, if possible. Whether the function itself is considered for inlining depends on its size and the current inlining parameters. (TESTED)
+
+
+
+16. format_arg  : (NOT TESTED SINCE THE FUNCTION IS NOT PRINTING)
+17. gnu_inline * (TESTED AND FAILED, RESIOLVE)
+18. hot *
+19. interrupt interrupt_handler : Many GCC back ends support attributes to indicate that a function is an interrupt handler, which tells the compiler to generate function entry and exit sequences that differ from those from regular functions. The exact syntax and behavior are target-specific; refer to the following subsections for details. (NOT TESTED SINCE THE FUNCTION IS NOT AN INTERRUPT HANDLER)
+
+
+20. leaf  Calls to external functions with this attribute must return to the current compilation unit only by return or by exception handling. In particular, leaf functions are not allowed to call callback function passed to it from the current compilation unit or directly call functions exported by the unit or longjmp into the unit. Leaf function might still call functions from other compilation units and thus they are not necessarily leaf in the sense that they contain no function calls at all. (NEED TO DO A THOROUGH CHECKING IF ANY OTHER COMPILATION CALLS ApplyMaterialProperties, ELSE LEAF DOESN'T WORK)
+
+
+21. malloc : This tells the compiler that a function is malloc-like, i.e., that the pointer P returned by the function cannot alias any other pointer valid when the function returns, and moreover no pointers to valid objects occur in any storage addressed by P. (NOT TESTED SINCE THE RETURN TYPE IS VOID)
+
+
+22. no_icf : This function attribute prevents a functions from being merged with another semantically equivalent function.
+
+
+23. no_reorder
+
+
+24. no_sanitize_address no_address_safety_analysis
+
+
+25. no_sanitize_thread : The no_sanitize_thread attribute on functions is used to inform the compiler that it should not instrument memory accesses in the function when compiling with the -fsanitize=thread option. (NOT TESTED SINCE COMPILER FLAG fsanitize=thread IS NOT BEING USED)
+
+25. no_sanitize_undefined (NOT TESTED FOR SAME REASON AS ABOVE)
+
+24. noreturn*
+
+
+25. nothrow*
+26. pure*
+27. 
+============
+Link
+============
+https://dmalcolm.fedorapeople.org/gcc/2015-08-31/rst-experiment/pragmas-accepted-by-gcc.html
+
+ATTRIBUTEs THAT GCC OPTIMIZE CAN TAKE : https://dmalcolm.fedorapeople.org/gcc/2015-08-31/rst-experiment/declaring-attributes-of-functions.html#function-attributes
+
+________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________
+
+
+2. #pragma ivdep 
+============
+Description
+============
+ ignores loop carried dependencies for given vectorization
+
+============
+Link
+============ 
+ https://gcc.gnu.org/onlinedocs/gcc/Loop-Specific-Pragmas.html
+ 
+ ________________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________________
+
+ 
 ====================================================================================================
 ====================================================================================================
 
