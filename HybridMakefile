@@ -23,8 +23,8 @@ OBJECTS2.0 = $(SOURCES2.0:.cc=.o)
 #Default build suggestions with OpenMP for g++
 #CXXFLAGS = -g -O3 -fopenmp -I. -pg -Wall
 
-CXXFLAGS = -O3 -qopenmp -I.
-LDFLAGS = -O3 -qopenmp 
+CXXFLAGS = -O3 -qopenmp -I. -march=native -xHost
+LDFLAGS = -O3 -qopenmp -march=native -xHost
 
 #Below are reasonable default flags for a serial build
 #CXXFLAGS = -g -O3 -I. -Wall
