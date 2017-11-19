@@ -2,11 +2,11 @@
 
 # Set this varible to supermuc to run it in the supermuc, otherwise it will run without calling modules or
 # llrun
-#MODE="supermuc"
-MODE = "AnibalSuperFunComputer"
+MODE="supermuc"
+#MODE = "AnibalSuperFunComputer"
 
 COMPILER="g++" # Two possible values, g++ or icc
-MAX_NUM_TASKS=4
+MAX_NUM_TASKS=32
 SUPERMUC_PHASE=1
 
 PYTHON_GEN_BATCH="OpenMPBatchScripGenerator.py"
