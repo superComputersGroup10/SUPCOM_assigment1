@@ -8,7 +8,7 @@ MODE="supermuc"
 COMPILER="mpiCC" # Two possible values, g++ or icc
 TWO_POWER_PROCESS=2
 MAX_NUM_TASKS=2
-SUPERMUC_PHASE=1
+SUPERMUC_PHASE=2
 
 PYTHON_GEN_BATCH="HybridBatchScripGenerator.py"
 

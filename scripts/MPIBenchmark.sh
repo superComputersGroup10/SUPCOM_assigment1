@@ -7,7 +7,7 @@ MODE="supermuc"
 
 COMPILER="mpiCC" # Two possible values, g++ or icc
 MAX_TWO_POWER_PROCESS=3
-SUPERMUC_PHASE=1
+SUPERMUC_PHASE=2
 
 PYTHON_GEN_BATCH="MPIBatchScripGenerator.py"
 
