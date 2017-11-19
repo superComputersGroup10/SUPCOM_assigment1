@@ -1,0 +1,42 @@
+Intel
+=======================================================================================================================================
+=======================================================================================================================================
+phase1
+
+Compier Flag    : -march=native -unroll
+
+
+======================================================================================================================================= 
+  phase1
+
+Compier Flag    : -march=native -xHost
+
+
+  =======================================================================================================================================     
+  
+   
+   
+ 
+GCC
+=======================================================================================================================================
+=======================================================================================================================================
+phase1
+
+Compier Flag    : "The best combination of compiler flags (below) that gives the fastest runtime doesn’t compile with -pg compiler flag, so we chose the next one that compiled with compiler flag -pg that allows us to profile the execution: -march=native -fomit-frame-pointer -floop-block -floop-strip-mine -funroll-loops (40.74 s)
+"
+
+
+flags that compiled : -march=native -floop-block -floop-strip-mine -funroll-loops
+Pragma          : 
+
+
+
+======================================================================================================================================= 
+  phase2
+
+Compier Flag    : the combination of compiler flag (at the end of statement) that gave the fastest result is in this cell but this combination  (to be very specific -fomit-frame-pointer ) doesn’t allow to compiler with -pg flag so we decided to select the combination that took the second least time -march=native -fomit-frame-pointer -floop-block -floop-strip-mine
+ (35.28)
+ 
+ flags that compiled : -march=native floop-interchange
+
+  =======================================================================================================================================
