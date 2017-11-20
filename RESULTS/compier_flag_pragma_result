@@ -12,8 +12,13 @@ function        : EvalEOSForElems( ) in lulesh.cc
   phase2
 
 Compier Flag    : -march=native -xHost
+<<<<<<< HEAD
 pragma          : #pragma loop_count (20)
 function        : EvalEOSForElems( ) in lulesh.cc
+=======
+NOTE: The diff. between old and new data was not significant, so we used old data.
+
+>>>>>>> 21b2947ad87eac118f0673576dfb43b69c5d23b2
 
   =======================================================================================================================================     
   
