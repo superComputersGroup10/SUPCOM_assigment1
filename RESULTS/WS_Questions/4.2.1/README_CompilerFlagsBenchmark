@@ -22,7 +22,8 @@ stored in output0, output1, ...)
 - OUTPUT_CVS_FILENAME: Name of the file created by the parser.
 
 So, in order to run an automatic test, one should do the following:
-1) Modify the $MODE, $COMPILER, $NUM_TASK and $SUPERMUC_PHASE accordingly.
+1) copy accompanying script directory to the parent directory of LULESH benchmark.
+2) Go to CompilerFlagsBenchmark.sh in the script directory and modify the $MODE, $COMPILER, $NUM_TASK and $SUPERMUC_PHASE accordingly.
 2) Go to the <lulesh_directory>/script directory.
 3) Run ./CompilerFlagsBenchmark
 4) The results will be stored by default under $CODE_DIRECTORY/4_2_compile_flags/phase$SUPERMUC_PHASE/$COMPILER.
