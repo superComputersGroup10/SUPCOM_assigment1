@@ -9,8 +9,8 @@ MPI_INC = /opt/local/include/openmpi
 MPI_LIB = /opt/local/lib
 
 SERCXX = g++ -DUSE_MPI=0
-MPICXX = mpigxx -DUSE_MPI=1
-CXX = $(SERCXX)
+MPICXX = mpiCC -DUSE_MPI=1
+CXX = $(MPICXX)
 
 SOURCES2.0 = \
 	lulesh.cc \
@@ -23,10 +23,19 @@ OBJECTS2.0 = $(SOURCES2.0:.cc=.o)
 #Default build suggestions with OpenMP for g++
 #CXXFLAGS = -g -O3 -fopenmp -I. -pg -Wall
 
-#CXXFLAGS = -g -O3 -fopenmp -I. -pg -Wall
-CXXFLAGS = -g -O3 -I. -pg -Wall
-#LDFLAGS = -g -O3 -fopenmp -pg
-LDFLAGS = -g -O3 -pg
+
+CXXFLAGS = -O3 -fopenmp -I.
+LDFLAGS = -O3 -fopenmp
+
+ifeq ($(mode),mpidebug) 
+	CXXFLAGS = -g -O2
+	LDFLAGS = -g -O2
+endif
+
+ifeq ($(mode),hybriddebug) 
+	CXXFLAGS = -g -O2 -qopenmp
+	LDFLAGS = -g -O2 -qopenmp
+endif
 
 #Below are reasonable default flags for a serial build
 #CXXFLAGS = -g -O3 -I. -Wall
