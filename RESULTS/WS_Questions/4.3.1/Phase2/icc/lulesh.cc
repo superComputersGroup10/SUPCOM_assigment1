@@ -2270,7 +2270,7 @@ void EvalEOSForElems(Domain& domain, Real_t *vnewc,
 #pragma omp parallel
       {
 #pragma omp for nowait firstprivate(numElemReg)
-#pragma loop_count(20)
+#pragma loop_count (20)
          for (Index_t i=0; i<numElemReg; ++i) {
             Index_t elem = regElemList[i];
             e_old[i] = domain.e(elem) ;
@@ -2282,7 +2282,7 @@ void EvalEOSForElems(Domain& domain, Real_t *vnewc,
          }
 
 #pragma omp for firstprivate(numElemReg)
-#pragma loop_count(20)
+#pragma loop_count (20)
          for (Index_t i = 0; i < numElemReg ; ++i) {
             Index_t elem = regElemList[i];
             Real_t vchalf ;
@@ -2294,7 +2294,7 @@ void EvalEOSForElems(Domain& domain, Real_t *vnewc,
       /* Check for v > eosvmax or v < eosvmin */
          if ( eosvmin != Real_t(0.) ) {
 #pragma omp for nowait firstprivate(numElemReg, eosvmin)
-#pragma loop_count(20)
+#pragma loop_count (20)
             for(Index_t i=0 ; i<numElemReg ; ++i) {
                Index_t elem = regElemList[i];
                if (vnewc[elem] <= eosvmin) { /* impossible due to calling func? */
@@ -2304,7 +2304,7 @@ void EvalEOSForElems(Domain& domain, Real_t *vnewc,
          }
          if ( eosvmax != Real_t(0.) ) {
 #pragma omp for nowait firstprivate(numElemReg, eosvmax)
-#pragma loop_count(20)
+#pragma loop_count (20)
             for(Index_t i=0 ; i<numElemReg ; ++i) {
                Index_t elem = regElemList[i];
                if (vnewc[elem] >= eosvmax) { /* impossible due to calling func? */
@@ -2316,7 +2316,7 @@ void EvalEOSForElems(Domain& domain, Real_t *vnewc,
          }
 
 #pragma omp for nowait firstprivate(numElemReg)
-#pragma loop_count(20)
+#pragma loop_count (20)
          for (Index_t i = 0 ; i < numElemReg ; ++i) {
             work[i] = Real_t(0.) ; 
          }
@@ -2330,7 +2330,7 @@ void EvalEOSForElems(Domain& domain, Real_t *vnewc,
    }
 
 #pragma omp parallel for firstprivate(numElemReg)
-#pragma loop_count(20)
+#pragma loop_count (20)
    for (Index_t i=0; i<numElemReg; ++i) {
       Index_t elem = regElemList[i];
       domain.p(elem) = p_new[i] ;

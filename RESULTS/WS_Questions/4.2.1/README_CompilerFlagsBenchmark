@@ -1,0 +1,29 @@
+The CompilerFlagsBenchmark.sh is script used to perform the automatic performance benchmark. At the top
+of it there are several variables defined:
+
+- MODE: If this variable is set to "supermuc", the shell will execute supermuc-specific commands (like
+module load, llrun, etc.). If the variable has other value, it will run without using any supermuc
+specific command. The latest is useful to realize tests over a personal computer.
+- COMPILER: It can be either g++ or icc. It is used to create the proper flags combination and makefile.
+- NUM_TASK: Use for llrun command.
+- SUPERMUC_PHASE: The supermuc phase where the code is going to be run. It is used to store the results
+according to the phase where the code was ran.
+- PYTHON_GEN_SCRIPT: This script generates a file with all the corresponding flags combination.
+- PYTHON_GEN_MAKE: This script generates the correct makefile.
+- PYTHON_PARSER: Use to parse the data once all the cases have been tested.
+- FLAGS_FILE: The name of the file with the flags combination. This file will be automatically created by
+the $PYTHON_GEN_SCRIPT
+- MAKE_FILE: Path and name of the make files created by $PYTHON_GEN_MAKE.
+- BINARY: Path and name of the generated binary.
+- OUTPUT_DIRECTORY: Path to the directory where the results will be stored. This directory, if it does not
+exit, will be created.
+- OUTPUT_FILES_SUFIX: Sufix of the result output (i.e., if set to output, then the results will be
+stored in output0, output1, ...)
+- OUTPUT_CVS_FILENAME: Name of the file created by the parser.
+
+So, in order to run an automatic test, one should do the following:
+1) copy accompanying script directory to the parent directory of LULESH benchmark.
+2) Go to CompilerFlagsBenchmark.sh in the script directory and modify the $MODE, $COMPILER, $NUM_TASK and $SUPERMUC_PHASE accordingly.
+2) Go to the <lulesh_directory>/script directory.
+3) Run ./CompilerFlagsBenchmark
+4) The results will be stored by default under $CODE_DIRECTORY/4_2_compile_flags/phase$SUPERMUC_PHASE/$COMPILER.
